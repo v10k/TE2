@@ -6,33 +6,36 @@
     </head>
 <body>
     <div class="container">
+    <div id="mensagem">
+            <span class="mensagem"></span>
+    </div>
         <div class="button">
             <button class="button btn-inserir" type="button" onClick="botaoInserir()" >Inserir</button>
             <button class="button btn-listar"  type="button" onClick="botaoListar()">Listar</button>
         </div>
 
         <div id="inserir">
-            <form>
+            <form method="POST" action="classes/Produto.php" id="form">
                 <div class="formRow">
                     <span class="label">Produto</span>
-                    <input type="text"  name="produto" />
+                    <input type="text"  name="produtoForm" id="produtoForm" />
                 </div>
                 <div class="formRow">
                     <span class="label">Quantidade</span>
-                    <input type="number"  name="quantidade" />
+                    <input type="number"  name="quantidadeForm" id="quantidadeForm" />
                 </div> 
                 <div class="sameRow">
                     <div class="formRow">
                         <span class="label extraSpace">Data entrada</span>
-                        <input type="date"  name="dataEntrada"/>
+                        <input type="date"  name="dataEntradaForm" id="dataEntradaForm"/>
                     </div>
                     <div class="formRow">
                         <span class="label extraSpace">Data Validade</span>
-                        <input type="date" name="dataValidade"/>
+                        <input type="date" name="dataValidadeForm" id="dataValidadeForm" />
                     </div>
                 </div>
                 <div class="formRow">
-                    <button class="button btn-submit" type="button">Salvar</button>
+                    <button class="button btn-submit" type="submit">Salvar</button>
                 </div> 
         </div>
 
@@ -56,6 +59,5 @@
             </tr>
             </table>
         </div>
-
     </div>
 </body>
