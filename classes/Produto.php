@@ -24,7 +24,7 @@ class Produto {
         $dataEntrada = $_POST['dataEntradaForm'];
         $dataEntrada = date("Y-m-d H:i:s",strtotime($dataEntrada));
         
-        $dataValidade = $_POST['dataEntradaForm'];
+        $dataValidade = $_POST['dataValidadeForm'];
         $dataValidade = date("Y-m-d H:i:s",strtotime($dataValidade));
     
         $produto = new Produto_model();

@@ -6,7 +6,7 @@ class Conexao {
 
     const SERVIDOR  = 'mysql:host=localhost;';
     const USUARIO   = 'root';
-    const SENHA     = '9264a630';
+    const SENHA     = '';
     const BANCO     = 'dbname=TE2;';
     const CHARSET   = 'charset=UTF8';
     
