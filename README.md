@@ -13,4 +13,4 @@
 <p>jQuery 3.2.1</p>
 
 <br/><br/>
-<p> Antes de testar, criar o banco <strong>TE2<strong/> (mysql/mariaDB) e importar o sql contido na pasta "mysql" </p>
+<p> <strong> Antes de testar, criar o banco TE2 (mysql/mariaDB) e importar o sql contido na pasta "mysql" </strong> </p>
