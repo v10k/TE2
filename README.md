@@ -1,4 +1,4 @@
-<img src="http://gru.ifsp.edu.br/images/logos/Guarulhos-02.jpg" height="150" width="150">
+<img src="http://gru.ifsp.edu.br/images/logos/Guarulhos-02.jpg">
 
 
 <h1> Crud Simples - Tópicos especiais II </h1>
