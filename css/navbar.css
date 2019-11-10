@@ -1,0 +1,43 @@
+
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 12vw; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background: rgb(54, 57, 63, 0.8); /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+}
+  
+
+.sidenav a {
+    padding: 10px 8px 10px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    display: block;
+    color: rgb(187, 184, 184);
+    cursor: pointer;
+    border-bottom: 2px solid rgb(136, 136, 136);
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.bottomMenu {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 12vw;
+  box-shadow: none;
+  border-bottom: none !important; 
+  border-top: 2px solid rgb(136, 136, 136);
+}
+
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }

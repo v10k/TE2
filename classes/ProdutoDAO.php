@@ -13,13 +13,16 @@ class ProdutoDAO {
         return self::$instance;
     }
  
-    public function adicionar_produto(Produto_model $produto) {
+    public function salvar_produto(Produto_model $produto) {
         $nome          = $produto->getNome();
         $quantidade    = $produto->getQuantidade();
         $dataEntrada   = $produto->getDataEntrada();
         $dataValidade  = $produto->getDataValidade();
-        try { 
-            $sql = "INSERT INTO produtos (nome, quantidade, dataEntrada, dataValidade) VALUES ('$nome', '$quantidade', '$dataEntrada', '$dataValidade')";
+        $id            = ($produto->getId() != null) ? $produto->getId() : null;
+        try {
+            $sql = ($id != null) 
+            ? "UPDATE produtos SET nome = '$nome', quantidade = '$quantidade', dataEntrada = '$dataEntrada', dataValidade = '$dataValidade' WHERE id = '$id'" 
+            : "INSERT INTO produtos (nome, quantidade, dataEntrada, dataValidade) VALUES ('$nome', '$quantidade', '$dataEntrada', '$dataValidade')"; 
             $pdo = Conexao::getInstance()->prepare($sql);
             $pdo->bindValue(1, $nome, PDO::PARAM_STR);
             $pdo->bindValue(2, $quantidade, PDO::PARAM_INT);
@@ -33,37 +36,29 @@ class ProdutoDAO {
         }
     }
 
-    public function deleta_carta(CartaModel $carta) {
-        $id = $carta->getId();
+    public function deleta_produto(Produto_model $produto) {
+        $id = $produto->getId();
         try {
-            $sql = "DELETE FROM cartas WHERE id = '$id'";
+            $sql = "DELETE FROM produtos WHERE id = '$id'";
             $pdo = Conexao::getInstance()->prepare($sql);
-            $pdo->bindValue(1, $carta->getId(), PDO::PARAM_INT);
+            $pdo->bindValue(1, $produto->getId(), PDO::PARAM_INT);
             $pdo->execute();
-            echo "Carta deletada com sucesso !";
+            return true;
         } catch (Exception $e) {
             echo "Erro ao deletar no banco de dados ! Erro " . $e;
+            return false;
         }
     }
 
-    public function retorna_cartas_deck($id) {
+    public function retorna_lista_produtos() {
         try {
-            $sql = "SELECT * FROM cartas WHERE id_deck = '$id'";
+            $sql = "SELECT * FROM produtos ORDER BY nome ASC";
             $pdo = Conexao::getInstance()->prepare($sql);
             $pdo->execute(); 
-            return $pdo->fetchAll();
+            return (object) $pdo->fetchAll(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
-            echo "Erro ao exibir cartas do banco de dados ! Erro " . $e;
+            return "Erro ao exibir produtos do banco de dados ! Erro " . $e;
         }
-    }
-
-    public function string_json(array $carta) { 
-            return (
-            "{\"id_deck\": " .$carta['id_deck']. ",".
-            "\"name\": \""   .$carta['name']. "\",".
-            "\"text\": \""   .$carta['text']. "\",".
-            "\"shots\": "    .$carta['shots']. "}" 
-            );
     }
 }
 

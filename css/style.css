@@ -2,7 +2,9 @@
     width: device-width;
   }
   body{
-      background-color: #1F1F1F;
+      /* background-color: rgb(7, 40, 83); */
+      background-image: url("../imagens/fundo.jpg"); /* https://pixabay.com/pt/photos/c%C3%A9u-nuvens-atmosfera-ar-oxig%C3%AAnio-1441936/ */
+      background-size: cover;
       font-family: "Serif";
       color: #FFF;
   }
@@ -21,9 +23,16 @@
 }
 
 div.container{
+    background: rgb(54, 57, 63, 0.7);
     display: flex;
     flex: 1;
     flex-direction: column;
+  align-items: center;
+  justify-content: center;
+    width: 40vw;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgb(54, 57, 63, 0.5), 0 1px 2px 
 }
 
 div.button {
@@ -32,7 +41,7 @@ div.button {
 
 .button {
     border: none;
-    padding: 14px 40px;
+    padding: 2vh 5vw;
     border-radius: 5px;
     text-align: center;
     text-decoration: none;
@@ -41,23 +50,28 @@ div.button {
     cursor:pointer;
 }
 
-button.btn-inserir {
-    background-color: #FF0000; 
-    color: white;
+button.link {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  cursor: pointer;
 }
 
-button.btn-listar {
-    background-color: #e0690d;
-    color: white;
+#titulo {
+    border-radius: 5px;
+    text-align: center;
+    justify-content: center;
+    display: block;
+    font-size: 1.1em;
 }
 
 button.btn-submit {
-    background-color: #0d91de;
+    background-color: #677BC4;
     color: white;
 }
 
 div#inserir {
-    width: 30%;
+    width: 30vw;
     display: flex;
     margin-top: 20px;
     align-self: center;
@@ -65,20 +79,24 @@ div#inserir {
 }
 
 div#listar {
-    width: 30%;
+    width: 30vw;
     display: none;
     margin-top: 20px;
     align-self: center;
     justify-content: center;
 }
 
-table, th, td {
-    border: 1px solid #FFF;
-    padding: 10px;
+div#login {
+    width: 30vw;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
 }
 
-table {
-    border-collapse: collapse;
+th, td {
+    padding: 20px;
 }
 
 img.tableIcon {
@@ -89,8 +107,9 @@ img.tableIcon {
 
 div.formRow {
     display: flex;
-    margin: 15px;
+    margin: 20px;
     flex-direction: column;
+    align-items: center;
 }
 
 div.sameRow {
@@ -101,30 +120,43 @@ div.sameRow {
 .label {
     display: flex;
     flex-direction: column;
-    font-size: 1.3em;
-    margin-bottom: 10px;
-}
-
-.extraSpace {
+    font-size: 1.2em;
     margin-bottom: 10px;
 }
 
 input {
+    width: 12vw;
     border: none;
-    border-bottom: 2px solid #9fd5f5;
-    background-color: #1F1F1F;
+    border-bottom: 2px solid rgb(152, 171, 240);
+    background: transparent;
     color: #FFF;
     font-size: 1.1em;
-    -webkit-transition: all .2s ease-out;
-    -moz-transition: all .2s ease-out;
-    -ms-transition: all .2s ease-out;
-    -o-transition: all .2s ease-out;
-    transition: all .2s ease-out
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -ms-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    transition: all .3s ease-out
+}
+
+input[type='checkbox'] {
+    width: 2vw;
 }
 
 input:focus {
     outline: none;
-    border-bottom: 2px solid #0d91de;
+    border-bottom: 2px solid #7289DA;
+}
+
+:invalid {
+    box-shadow: none;
+}
+  
+:-moz-submit-invalid {
+    box-shadow: none;
+}
+  
+:-moz-ui-invalid {
+    box-shadow: none;
 }
 
 div#mensagem {
@@ -139,3 +171,10 @@ div#mensagem {
 span.mensagem { 
     font-size: 1.5em;
 }
+
+.showPassword {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+

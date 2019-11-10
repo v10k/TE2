@@ -1,11 +1,14 @@
-<?php 
+<?php
+
+
 
 class Conexao {
 
     const SERVIDOR  = 'mysql:host=localhost;';
     const USUARIO   = 'root';
     const SENHA     = '9264a630';
-    const BANCO     = 'dbname=TE2';
+    const BANCO     = 'dbname=TE2;';
+    const CHARSET   = 'charset=UTF8';
     
     public static $instance;
  
@@ -15,7 +18,7 @@ class Conexao {
  
     public static function getInstance() {
         if (!isset(self::$instance)) {
-            self::$instance = new PDO(self::SERVIDOR. self::BANCO, self::USUARIO , self::SENHA, 
+            self::$instance = new PDO(self::SERVIDOR. self::BANCO. self::CHARSET, self::USUARIO , self::SENHA, 
             array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
             self::$instance->setAttribute(PDO::ATTR_ERRMODE, 
             PDO::ERRMODE_EXCEPTION);
