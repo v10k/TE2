@@ -1,7 +1,7 @@
 <?php
     include('header.html');
     session_start();
-    if (!isset($_SESSION, $_SESSION['logado']) && !$_SESSION['logado']) {
+    if (isset($_SESSION, $_SESSION['logado']) && !$_SESSION['logado']) {
         header('location:login.php');
     }
 ?>
