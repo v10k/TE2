@@ -1,5 +1,9 @@
 <?php
     include('header.html');
+    session_start();
+    if (!isset($_SESSION, $_SESSION['logado']) && !$_SESSION['logado']) {
+        header('location:login.php');
+    }
 ?>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <script src="js/javascript.js"></script>
